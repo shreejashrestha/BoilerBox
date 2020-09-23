@@ -1,0 +1,2 @@
+///// contact us
+///// static page
