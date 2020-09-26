@@ -1,6 +1,8 @@
 import 'package:flutter/material.dart';
-import 'homePage.dart';
 import 'modesPage.dart';
+import 'connectPage.dart';
+import 'settingsPage.dart';
+import 'statusPage.dart';
 
 final List<String> entries = <String>[
   'Connect',
@@ -8,6 +10,8 @@ final List<String> entries = <String>[
   'Settings',
   'Profile'
 ];
+
+final List pages = [ConnectPage(), ModesPage(), SettingsPage(), StatusPage()];
 
 class MyHomePage extends StatefulWidget {
   MyHomePage({Key key, this.title}) : super(key: key);
@@ -32,7 +36,7 @@ class _MyHomePageState extends State<MyHomePage> {
               return new GestureDetector(
                 onTap: () {
                   Navigator.push(context,
-                      MaterialPageRoute(builder: (context) => ModesPage()));
+                      MaterialPageRoute(builder: (context) => pages[index]));
                 },
                 child: Container(
                   margin: EdgeInsets.all(16),
