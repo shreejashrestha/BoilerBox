@@ -1,11 +1,12 @@
 /// all the bluetooth shit
 /// all the spotify configuration shit
-///
 
 import 'package:flutter/material.dart';
 import 'BluetoothFolder/btmain.dart';
+import 'SpotifyFolder/spotifymain.dart';
 
 final List<String> entries = <String>['Spotify', 'Bluetooth'];
+final List pages = [SpotifyPage(), BluetoothPage()];
 
 class ConnectPage extends StatefulWidget {
   ConnectPage({Key key, this.title}) : super(key: key);
@@ -21,7 +22,7 @@ class _ConnectPageState extends State<ConnectPage> {
       appBar: AppBar(
         centerTitle: true,
         backgroundColor: Colors.black,
-        title: Text('BoilerBox'),
+        title: Text('Connect'),
       ),
       body: SafeArea(
         child: ListView.builder(
@@ -30,7 +31,7 @@ class _ConnectPageState extends State<ConnectPage> {
               return new GestureDetector(
                 onTap: () {
                   Navigator.push(context,
-                      MaterialPageRoute(builder: (context) => MainPage()));
+                      MaterialPageRoute(builder: (context) => pages[index]));
                 },
                 child: Container(
                   margin: EdgeInsets.all(16),

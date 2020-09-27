@@ -18,7 +18,7 @@ class _StatusPageState extends State<StatusPage> {
       appBar: AppBar(
         centerTitle: true,
         backgroundColor: Colors.black,
-        title: Text('BoilerBox'),
+        title: Text('Status'),
       ),
       body: SafeArea(
         child: ListView.builder(

@@ -11,12 +11,12 @@ import './BackgroundCollectedPage.dart';
 
 // import './helpers/LineChart.dart';
 
-class MainPage extends StatefulWidget {
+class BluetoothPage extends StatefulWidget {
   @override
-  _MainPage createState() => new _MainPage();
+  _BluetoothPage createState() => new _BluetoothPage();
 }
 
-class _MainPage extends State<MainPage> {
+class _BluetoothPage extends State<BluetoothPage> {
   BluetoothState _bluetoothState = BluetoothState.UNKNOWN;
 
   String _address = "...";
@@ -88,13 +88,11 @@ class _MainPage extends State<MainPage> {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: const Text('Flutter Bluetooth Serial'),
+        title: const Text('Bluetooth'),
       ),
       body: Container(
         child: ListView(
           children: <Widget>[
-            Divider(),
-            ListTile(title: const Text('General')),
             SwitchListTile(
               title: const Text('Enable Bluetooth'),
               value: _bluetoothState.isEnabled,
@@ -124,20 +122,11 @@ class _MainPage extends State<MainPage> {
               ),
             ),
             ListTile(
-              title: const Text('Local adapter address'),
-              subtitle: Text(_address),
-            ),
-            ListTile(
-              title: const Text('Local adapter name'),
-              subtitle: Text(_name),
-              onLongPress: null,
-            ),
-            ListTile(
               title: _discoverableTimeoutSecondsLeft == 0
                   ? const Text("Discoverable")
                   : Text(
                       "Discoverable for ${_discoverableTimeoutSecondsLeft}s"),
-              subtitle: const Text("PsychoX-Luna"),
+              subtitle: const Text("BoilerBox Bluetooth"),
               trailing: Row(
                 mainAxisSize: MainAxisSize.min,
                 children: [
@@ -190,8 +179,8 @@ class _MainPage extends State<MainPage> {
               ),
             ),
             Divider(),
-            ListTile(title: const Text('Devices discovery and connection')),
             SwitchListTile(
+              //I dont even know what it means// Study this //
               title: const Text('Auto-try specific pin when pairing'),
               subtitle: const Text('Pin 1234'),
               value: _autoAcceptPairingRequests,
@@ -246,7 +235,7 @@ class _MainPage extends State<MainPage> {
                       },
                     ),
                   );
-
+//Part where the chat instance comes in picture
                   if (selectedDevice != null) {
                     print('Connect -> selected ' + selectedDevice.address);
                     _startChat(context, selectedDevice);
@@ -315,6 +304,7 @@ class _MainPage extends State<MainPage> {
     );
   }
 
+//chat instance, eliminate after achieving the bluetooth testing part.
   void _startChat(BuildContext context, BluetoothDevice server) {
     Navigator.of(context).push(
       MaterialPageRoute(
@@ -324,6 +314,8 @@ class _MainPage extends State<MainPage> {
       ),
     );
   }
+
+//I think that this essentially collects background data on establishing connection with the microcontroller.
 
   Future<void> _startBackgroundTask(
     BuildContext context,

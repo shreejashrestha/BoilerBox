@@ -18,7 +18,7 @@ class _ModesPageState extends State<ModesPage> {
       appBar: AppBar(
         centerTitle: true,
         backgroundColor: Colors.black,
-        title: Text('BoilerBox'),
+        title: Text('Modes'),
       ),
       body: SafeArea(
         child: ListView.builder(

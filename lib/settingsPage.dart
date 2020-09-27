@@ -17,7 +17,7 @@ class _SettingsPageState extends State<SettingsPage> {
       appBar: AppBar(
         centerTitle: true,
         backgroundColor: Colors.black,
-        title: Text('BoilerBox'),
+        title: Text('Settings'),
       ),
       body: SafeArea(
         child: ListView.builder(
