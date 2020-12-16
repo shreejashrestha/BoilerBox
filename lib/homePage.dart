@@ -1,18 +1,25 @@
+/*
+Author: BoilerBox software - Abhimanyu Agarwal, Shreeja Shrestha and Max Hansen
+Date:
+Title of program/source code: 'Home' page on application
+Code version: v1.0
+Type (e.g. computer program, source code): BoilerBox DART file
+*/
+/*
+Description: Towards the end of the splash screen BoilerBox logo, this page is pushed onto the stack and is returned with page navigation buttons.
+             These buttons correspond to Connect and Modes which enables you to use Bluetooth and explore the music player along with the mood prediction feature.
+*/
+
+//Imports
 import 'package:flutter/material.dart';
 import 'modesPage.dart';
 import 'connectPage.dart';
-import 'settingsPage.dart';
-import 'statusPage.dart';
 
-final List<String> entries = <String>[
-  'Connect',
-  'Modes',
-  'Settings',
-  'Profile'
-];
+//List of pages
+final List<String> entries = <String>['Connect',  'Modes'];
+final List pages = [ConnectPage(), ModesPage()];
 
-final List pages = [ConnectPage(), ModesPage(), SettingsPage(), StatusPage()];
-
+//Creates the homePage widget with state status: Stateful Widget
 class MyHomePage extends StatefulWidget {
   MyHomePage({Key key, this.title}) : super(key: key);
   final String title;
@@ -20,6 +27,7 @@ class MyHomePage extends StatefulWidget {
   _MyHomePageState createState() => _MyHomePageState();
 }
 
+//This homePage comes with an updated BoilerBox logo
 class _MyHomePageState extends State<MyHomePage> {
   @override
   Widget build(BuildContext context) {
@@ -31,7 +39,7 @@ class _MyHomePageState extends State<MyHomePage> {
       ),
       body: SafeArea(
         child: ListView.builder(
-            itemCount: 4,
+            itemCount: 2,
             itemBuilder: (context, index) {
               return new GestureDetector(
                 onTap: () {
@@ -59,10 +67,12 @@ class _MyHomePageState extends State<MyHomePage> {
                           child: Row(
                             mainAxisAlignment: MainAxisAlignment.spaceBetween,
                             children: <Widget>[
-                              FlutterLogo(size: 48),
-                              SizedBox(
-                                width: 16,
+                              Image.asset(
+                                'assets/croppedlogo.png',
+                                height: 100,
+                                width: 100,
                               ),
+
                               Expanded(
                                 child: Column(
                                   crossAxisAlignment: CrossAxisAlignment.start,

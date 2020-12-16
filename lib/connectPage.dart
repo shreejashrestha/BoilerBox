@@ -1,12 +1,19 @@
-/// all the bluetooth shit
-/// all the spotify configuration shit
+/*
+Author: Abhimanyu Agarwal, Shreeja Shrestha, Max Hansen
+Date:
+Title of program/source code: 'Connect' page on application
+Code version: v1.0
+Type (e.g. computer program, source code): BoilerBox DART file
+*/
 
+//Imports
 import 'package:flutter/material.dart';
-import 'BluetoothFolder/btmain.dart';
 import 'SpotifyFolder/spotifymain.dart';
+import 'BluetoothFolder/newbtmain.dart';
+
 
 final List<String> entries = <String>['Spotify', 'Bluetooth'];
-final List pages = [SpotifyPage(), BluetoothPage()];
+final List pages = [WebViewPage1(), BluetoothPage()];
 
 class ConnectPage extends StatefulWidget {
   ConnectPage({Key key, this.title}) : super(key: key);
@@ -15,9 +22,11 @@ class ConnectPage extends StatefulWidget {
   _ConnectPageState createState() => _ConnectPageState();
 }
 
-class _ConnectPageState extends State<ConnectPage> {
+class _ConnectPageState extends State<ConnectPage>
+{
   @override
-  Widget build(BuildContext context) {
+  Widget build(BuildContext context)
+  {
     return Scaffold(
       appBar: AppBar(
         centerTitle: true,
@@ -27,7 +36,8 @@ class _ConnectPageState extends State<ConnectPage> {
       body: SafeArea(
         child: ListView.builder(
             itemCount: 2,
-            itemBuilder: (context, index) {
+            itemBuilder: (context, index)
+            {
               return new GestureDetector(
                 onTap: () {
                   Navigator.push(context,
@@ -54,9 +64,10 @@ class _ConnectPageState extends State<ConnectPage> {
                           child: Row(
                             mainAxisAlignment: MainAxisAlignment.spaceBetween,
                             children: <Widget>[
-                              FlutterLogo(size: 48),
-                              SizedBox(
-                                width: 16,
+                              Image.asset(
+                                'assets/croppedlogo.png',
+                                height: 100,
+                                width: 100,
                               ),
                               Expanded(
                                 child: Column(

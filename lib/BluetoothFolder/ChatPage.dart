@@ -1,3 +1,16 @@
+/*
+  //https://github.com/edufolly/flutter_bluetooth_serial/tree/master/example
+  Author: Eduardo Folly
+  Date: April 1st 2020
+  "flutter_bluetooth_serial"
+  Team 24 did not write, edit or use this code in the Final product.
+*/
+/*
+Description : This is the classical bluetooth instance page that BoilerBox
+is not using anymore due to compatibility issues.
+*/
+
+//Imports
 import 'dart:async';
 import 'dart:convert';
 import 'dart:typed_data';
